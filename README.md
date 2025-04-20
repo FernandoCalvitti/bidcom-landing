@@ -2,13 +2,16 @@
 
 A modern landing page built with Next.js, featuring a carousel of images and responsive design.
 
+Can be accesed from here:
+
+### https://bidcom-landing.vercel.app/
+
 ## Features
 
 - Image carousel with autoplay
 - Responsive layout
 - Modern UI components
 - Smooth scrolling
-- Dark mode support
 
 ## Tech Stack
 

@@ -16,7 +16,7 @@ type UseDotButtonType = {
 
 export const useDotButton = (
   emblaApi: EmblaCarouselType | undefined,
-  onButtonClick?: (emblaApi: EmblaCarouselType) => void,
+  onButtonClick?: (emblaApi: EmblaCarouselType) => void
 ): UseDotButtonType => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
@@ -27,7 +27,7 @@ export const useDotButton = (
       emblaApi.scrollTo(index);
       if (onButtonClick) onButtonClick(emblaApi);
     },
-    [emblaApi, onButtonClick],
+    [emblaApi, onButtonClick]
   );
 
   const onInit = useCallback((emblaApi: EmblaCarouselType) => {
@@ -67,7 +67,7 @@ export const DotButton: React.FC<PropType> = (props) => {
       <span
         className={`relative block h-2 w-2 rounded-full after:absolute after:inset-0 after:rounded-full after:border-2 after:content-[''] sm:h-3 sm:w-3 ${
           isSelected
-            ? "bg-gray-900 after:border-gray-900 dark:bg-gray-100 dark:after:border-gray-100"
+            ? " bg-gray-900 after:border-gray-900 dark:bg-gray-900 dark:after:border-gray-900"
             : "after:border-gray-400 dark:after:border-gray-500"
         }`}
       ></span>

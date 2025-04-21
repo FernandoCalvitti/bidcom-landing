@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "../components/button";
 import EmblaCarousel from "../components/embla-carousel";
 
-export default function Hero({
+export default function HeroTest({
   images,
   pageData,
 }: {
@@ -15,36 +15,41 @@ export default function Hero({
   return (
     <>
       <div className="mx-auto flex h-full min-h-[calc(100vh-70px)] w-full max-w-[1600px] items-center justify-center bg-white text-black">
-        <div className="flex w-full flex-col items-center justify-between gap-8 px-4 py-10 sm:px-16 lg:flex-row">
-          {/* Text Section */}
-          <section className="flex w-full flex-col items-center justify-start gap-2 text-center lg:w-1/2 lg:items-start lg:gap-6 lg:text-left">
-            <h1 className="text-xs font-normal">
-              {pageData.headline}
-              <p
-                className="mx-auto w-full max-w-md text-4xl leading-relaxed lg:mx-0"
-                dangerouslySetInnerHTML={{ __html: pageData.title }}
-              />
-            </h1>
-            <p className="mx-auto max-w-md leading-relaxed lg:mx-0">
-              {pageData.description}
-            </p>
-            <Link
-              href={pageData.button.link}
-              className="w-full max-w-none sm:max-w-fit md:max-w-max"
-            >
-              <Button className="inline-flex w-full cursor-pointer items-center justify-center gap-4 p-6">
-                <p className="">{pageData.button.title}</p>
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Link>
-          </section>
+        <div className="w-full px-4 py-10 sm:px-16">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:grid-rows-[auto_auto]">
+            {/* Text Section */}
+            <section className="flex flex-col items-center justify-end gap-2 text-center order-1 lg:items-start lg:gap-6 lg:text-left">
+              <h1 className="text-xs font-normal max-w-md mx-auto lg:mx-0">
+                {pageData.headline}
+                <p
+                  className="w-full text-3xl lg:text-4xl leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: pageData.title }}
+                />
+              </h1>
+              <p className="max-w-md leading-relaxed mx-auto lg:mx-0">
+                {pageData.description}
+              </p>
+            </section>
 
-          {/* Image Section */}
-          <section className="flex justify-center lg:w-1/2">
-            <div className="max-w-[320px] overflow-hidden sm:max-w-[600px] md:max-w-[450px] xl:max-w-[600px]">
-              <EmblaCarousel slides={images} options={{ loop: true }} />
+            {/* Image Section */}
+            <div className="flex justify-center order-2 lg:row-span-2">
+              <div className="max-w-[320px] overflow-hidden sm:max-w-[600px] md:max-w-[450px] xl:max-w-[600px]">
+                <EmblaCarousel slides={images} options={{ loop: true }} />
+              </div>
             </div>
-          </section>
+
+            {/* Button Section */}
+            <div className="w-full flex justify-center order-3 lg:justify-start lg:mt-0 lg:order-3">
+              <div className="w-full max-w-md">
+                <Link href={pageData.button.link} className="w-full lg:w-auto">
+                  <Button className="inline-flex w-full cursor-pointer items-center justify-center gap-4 p-6 lg:w-auto">
+                    <p>{pageData.button.title}</p>
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
